@@ -1,0 +1,2 @@
+module GrupoingredientesHelper
+end

@@ -1,15 +1,19 @@
 Rails.application.routes.draw do
 
+
+
   root to: "home#index"
 
   resources :platos
   resources :menu_platos
+  resources :ingredientes
 
   devise_for :clientes
   scope "/admin" do
     resources :menus
     resources :clientes
     resources :roles
+    resources :grupoingredientes
   end
 
 

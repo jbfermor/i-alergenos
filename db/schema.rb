@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_28_210824) do
+ActiveRecord::Schema.define(version: 2021_03_03_211412) do
 
   create_table "clientes", force: :cascade do |t|
     t.string "nombre"
@@ -31,6 +31,20 @@ ActiveRecord::Schema.define(version: 2021_02_28_210824) do
     t.index ["email"], name: "index_clientes_on_email", unique: true
     t.index ["reset_password_token"], name: "index_clientes_on_reset_password_token", unique: true
     t.index ["role_id"], name: "index_clientes_on_role_id"
+  end
+
+  create_table "grupoingredientes", force: :cascade do |t|
+    t.string "nombre"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "ingredientes", force: :cascade do |t|
+    t.string "nombre"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "grupoingrediente_id", null: false
+    t.index ["grupoingrediente_id"], name: "index_ingredientes_on_grupoingrediente_id"
   end
 
   create_table "menu_platos", force: :cascade do |t|
@@ -59,5 +73,6 @@ ActiveRecord::Schema.define(version: 2021_02_28_210824) do
   end
 
   add_foreign_key "clientes", "roles"
+  add_foreign_key "ingredientes", "grupoingredientes"
   add_foreign_key "menus", "clientes"
 end
