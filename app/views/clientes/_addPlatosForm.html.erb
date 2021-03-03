@@ -1,0 +1,4 @@
+<%= form with model: @menu do |f| %>
+    <%= collection_select(:plato, :plato_id, Plato.all, :id, :nombre ) %>
+    <%= f.submit %>
+<% end %>

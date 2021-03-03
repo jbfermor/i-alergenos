@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @cliente.nombre %>
+</p>
+
+<p>
+  <strong>Cifnif:</strong>
+  <%= @cliente.cifNif %>
+</p>
+
+<p>
+  <strong>Direccion:</strong>
+  <%= @cliente.direccion %>
+</p>
+
+<p>
+  <strong>Localidad:</strong>
+  <%= @cliente.localidad %>
+</p>
+
+<p>
+  <strong>Cp:</strong>
+  <%= @cliente.cp %>
+</p>
+
+<p>
+  <strong>Provincia:</strong>
+  <%= @cliente.provincia %>
+</p>
+
+<p>
+  <strong>Telefono:</strong>
+  <%= @cliente.telefono %>
+</p>
+
+<table>
+    <tr>
+      <th>Lista de menus:</th>
+    </tr>
+    <% if @lista_menus.empty? %>
+      <tr>
+        <td>No hay ningún menú creado todavía</td>
+      </tr>
+    <% else %>
+    <%= @lista_menus.each do |menu| %>
+      <tr>
+        <td>
+          <%= menu.nombre %>
+        </td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
+
+
+<%= link_to 'Edit', edit_cliente_path(@cliente) %> |
+<%= link_to 'Back', clientes_path %>

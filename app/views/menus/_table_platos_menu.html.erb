@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col-12">
+    <table>
+      <thead>
+        <tr>
+          <th>Platos</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @menu.menu_platos.empty? %>
+          <tr>
+            <td>No hay platos añadidos todavía</td>
+            <td></td>
+          </tr>
+        <% else %>
+          <% @menu.menu_platos.each do |plato| %>
+            <tr>
+              <td>
+                <%= plato.plato.nombre %>
+              </td>
+              <td>
+                <%= link_to "Eliminar",
+                 menu_plato_path(plato, :menu_id => @menu.id),
+                 class: "btn btn-danger btn-sm",
+                 method: :delete %>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

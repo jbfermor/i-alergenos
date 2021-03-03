@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-12">
+    <h1>Platos</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th colspan="3">Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @platos.each do |plato| %>
+          <tr>
+            <td><%= plato.nombre %></td>
+            <td><%= link_to 'Show', plato %></td>
+            <td><%= link_to 'Edit', edit_plato_path(plato) %></td>
+            <td><%= link_to 'Destroy', plato, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <%= link_to 'New Plato', new_plato_path %>
+  </div>
+</div>
