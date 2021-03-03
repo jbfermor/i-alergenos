@@ -1,9 +1,32 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-12">
+    <h1> <%= @plato.nombre %> </h1>
+  </div>
+  <div class="col-12">
+    <%= link_to 'Edit', edit_plato_path(@plato) %> |
+    <%= link_to 'Back', platos_path %>
+  </div>
+</div>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @plato.nombre %>
-</p>
+<div class="row">
+  <div class="col-12">
+    <%= render "platos/table_ingredientes_plato" %>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_plato_path(@plato) %> |
-<%= link_to 'Back', platos_path %>
+<div class="row">
+  <div class="col-12">
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+     data-bs-target="#add_ingredientes" aria-expanded="false"
+      aria-controls="add_ingredientes">
+      Añadir ingredientes al plato
+    </button>
+  </div>
+  <div class="col-12">
+    <div class="collapse" id="add_ingredientes">
+      <div class="card card-body">
+        <%= render "platos/add_ingrediente" %>
+      </div>
+    </div>
+  </div>
+</div>

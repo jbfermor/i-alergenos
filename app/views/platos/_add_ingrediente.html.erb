@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-12">
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% Ingrediente.all.each do |i| %>
+        <tr>
+          <td>
+            <%= i.nombre %>
+          </td>
+          <td>
+            <%= button_to "Añadir",
+            plato_ingredientes_path(:ingrediente_id => i.id,
+            :plato_id => @plato.id),
+            class: "btn btn-success btn-sm" %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
