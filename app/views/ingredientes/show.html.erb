@@ -1,9 +1,24 @@
-<p id="notice"><%= notice %></p>
 
 <p>
   <strong>Nombre:</strong>
   <%= @ingrediente.nombre %>
 </p>
+
+<p>
+  <strong>Grupo de alimentos:</strong>
+  <%= @ingrediente.grupoingrediente.nombre %>
+</p>
+
+<div>
+  <p><strong>Alérgenos:</strong></p>
+  <% @ingrediente.alergenos.each do |a| %>
+    <p><%= a.nombre %> <img src="<%= asset_path "#{a.img}" %>" alt="" width="50px"></p>
+
+  <% end %>
+
+</div>
+
+
 
 <%= link_to 'Edit', edit_ingrediente_path(@ingrediente) %> |
 <%= link_to 'Back', ingredientes_path %>

@@ -22,6 +22,17 @@
      Grupoingrediente.all, :id, :nombre)  %>
   </div>
 
+  <div class="form-group">
+  <div class="row">
+    <div class="col-md-offset-2 col-md-8">
+      <%= form.collection_check_boxes :alergeno_ids,
+        Alergeno.all, :id, :nombre do |cb| %>
+      <% cb.label(class: "checkbox-inline input_checkbox"){cb.check_box(class: "checkbox") + cb.text} %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

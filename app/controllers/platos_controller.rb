@@ -64,6 +64,6 @@ class PlatosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def plato_params
-      params.require(:plato).permit(:nombre, :menu_ids [])
+      params.require(:plato).permit(:nombre, alimento_ids: [], alergeno_ids: [])
     end
 end

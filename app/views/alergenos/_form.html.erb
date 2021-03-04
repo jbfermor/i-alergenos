@@ -1,0 +1,27 @@
+<%= form_with(model: alergeno) do |form| %>
+  <% if alergeno.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(alergeno.errors.count, "error") %> prohibited this alergeno from being saved:</h2>
+
+      <ul>
+        <% alergeno.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Imagen" %>
+    <%= form.text_field :img %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
