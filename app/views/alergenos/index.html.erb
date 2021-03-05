@@ -6,7 +6,7 @@
     <tr>
       <th>Nombre</th>
       <th>Imagen</th>
-      <th colspan="3"></th>
+      <th colspan="3">Acciones</th>
     </tr>
   </thead>
 
@@ -15,9 +15,12 @@
       <tr>
         <td><%= alergeno.nombre %></td>
         <td> <img src="<%= asset_path "#{alergeno.img}" %>" alt="" width="50px"></td>
-        <td><%= link_to 'Show', alergeno %></td>
-        <td><%= link_to 'Edit', edit_alergeno_path(alergeno) %></td>
-        <td><%= link_to 'Destroy', alergeno, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', alergeno, class: "btn btn-success text-white" %></td>
+        <td><%= link_to 'Editar', edit_alergeno_path(alergeno),
+           class: "btn btn-warning text-white" %></td>
+        <td><%= link_to 'Eliminar', alergeno, method: :delete,
+           data: { confirm: '¿Seguro?' },
+           class: "btn btn-danger text-white" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -25,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Alergeno', new_alergeno_path %>
+<%= link_to 'Nuevo Alergeno', new_alergeno_path, class: "btn btn-success text-white" %>
