@@ -1,64 +1,65 @@
-<h2>Sign up</h2>
+<h2>Registrarse</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label :email, class: "form-label" %><br />
+    <%= f.email_field :email, autofocus: true,
+     autocomplete: "email", class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :password, class: "form-label" %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(<%= @minimum_password_length %> caracteres al menos)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password,
+     autocomplete: "new-password", class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.label :password_confirmation, class: "form-label" %><br />
+    <%= f.password_field :password_confirmation,
+     autocomplete: "new-password", class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= f.label :nombre %>
-    <%= f.text_field :nombre %>
+    <%= f.label :nombre, class: "form-label" %>
+    <%= f.text_field :nombre, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= f.label :cifNif %>
-    <%= f.text_field :cifNif %>
+    <%= f.label :cifNif, class: "form-label" %>
+    <%= f.text_field :cifNif, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= f.label :direccion %>
-    <%= f.text_field :direccion %>
+    <%= f.label :direccion, class: "form-label" %>
+    <%= f.text_field :direccion, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= f.label :localidad %>
-    <%= f.text_field :localidad %>
+    <%= f.label :localidad, class: "form-label" %>
+    <%= f.text_field :localidad, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= f.label :cp %>
-    <%= f.number_field :cp %>
+    <%= f.label :cp, class: "form-label" %>
+    <%= f.number_field :cp, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= f.label :provincia %>
-    <%= f.text_field :provincia %>
+    <%= f.label :provincia, class: "form-label" %>
+    <%= f.text_field :provincia, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= f.label :telefono %>
-    <%= f.number_field :telefono %>
+    <%= f.label :telefono, class: "form-label" %>
+    <%= f.number_field :telefono, class: "form-control" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Registrarse", class:"btn btn-success" %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>

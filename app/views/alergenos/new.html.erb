@@ -1,5 +1,10 @@
-<h1>New Alergeno</h1>
+<div class="container p-3">
+  <h1>Nuevo alérgeno</h1>
 
-<%= render 'form', alergeno: @alergeno %>
+  <%= render 'form', alergeno: @alergeno %>
+</div>
 
-<%= link_to 'Back', alergenos_path %>
+
+<div class="row">
+  <%= link_to 'Atrás', alergenos_path, class: "btn btn-danger text-white" %>
+</div>
