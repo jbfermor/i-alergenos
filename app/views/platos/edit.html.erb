@@ -1,6 +1,15 @@
-<h1>Editing Plato</h1>
+<div class="container">
+  <div class="row">
+    <h1>Editando Plato</h1>
+  </div>
 
-<%= render 'form', plato: @plato %>
+  <%= render 'form', plato: @plato %>
 
-<%= link_to 'Show', @plato %> |
-<%= link_to 'Back', platos_path %>
+  <div class="row">
+    <%= link_to 'Mostrar', @plato, class: "btn btn-warning text-white" %>
+  </div>
+  
+  <div class="row">
+    <%= link_to 'Atrás', platos_path, class: "btn btn-danger text-white" %>
+  </div>
+</div>
