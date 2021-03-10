@@ -24,6 +24,11 @@
                 </p>
               </td>
               <td>
+                <%= link_to "Mostrar",
+                 ingrediente_path(i.id),
+                 class: "btn btn-primary btn-sm text-white"%>
+              </td>
+              <td>
                 <%= link_to "Eliminar",
                  ingrediente_path(i.id),
                  class: "btn btn-danger btn-sm text-white",
