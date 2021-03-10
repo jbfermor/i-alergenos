@@ -1,9 +1,44 @@
-<p id="notice"><%= notice %></p>
+<div class="container mt-3 d-grid gap-3">
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @grupoingrediente.nombre %>
-</p>
+  <div class="row">
+    <table class="shadow">
+      <thead>
+        <tr>
+          <th><%= @grupoingrediente.nombre %></th>
+        </tr>
+      </thead>
+    </table>
+  </div>
 
-<%= link_to 'Edit', edit_grupoingrediente_path(@grupoingrediente) %> |
-<%= link_to 'Back', grupoingredientes_path %>
+  <div class="row">
+    <%= link_to 'Editar', edit_grupoingrediente_path(@grupoingrediente),
+    class: "btn btn-warning text-white" %>
+  </div>
+
+  <div class="row">
+    <table class="shadow">
+      <thead>
+        <tr>
+          <th>Ingredientes del grupo</th>
+          <th colspan="2"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @grupoingrediente.ingredientes.each do |i| %>
+        <tr>
+          <td>
+            <%= i.nombre %>
+          </td>
+          <td colspan="2"><%= link_to "Mostrar", ingrediente_path(i.id),
+            class: "btn btn-sm btn-primary text-white" %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="row">
+    <%= link_to 'Atrás', grupoingredientes_path,
+    class: "btn btn-danger text-white" %>
+  </div>
+</div>

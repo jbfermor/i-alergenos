@@ -1,6 +1,13 @@
-<h1>Editing Grupoingrediente</h1>
+<div class="container mt-3">
+  <h1>Editando Grupo de ingredientes</h1>
 
-<%= render 'form', grupoingrediente: @grupoingrediente %>
+  <%= render 'form', grupoingrediente: @grupoingrediente %>
+</div>
 
-<%= link_to 'Show', @grupoingrediente %> |
-<%= link_to 'Back', grupoingredientes_path %>
+<div class="row mt-3">
+  <%= link_to 'Mostrar', @grupoingrediente, class: "btn btn-warning text-white" %>
+</div>
+
+<div class="row">
+  <%= link_to 'Atrás', grupoingredientes_path, class: "btn btn-danger text-white" %>
+</div>
