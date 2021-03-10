@@ -12,28 +12,30 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :nombre %>
-    <%= form.text_field :nombre %>
+    <%= form.label :nombre, class: "form-label" %>
+    <%= form.text_field :nombre, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label "Grupo de alimentos" %>
+    <%= form.label "Grupo de alimentos", class: "form-label" %>
     <%= collection_select(:ingrediente, :grupoingrediente_id,
-     Grupoingrediente.all, :id, :nombre)  %>
+     Grupoingrediente.all, :id, :nombre, {prompt: "Seleeciona un grupo"}, {class: "form-select"})  %>
   </div>
 
   <div class="form-group">
-  <div class="row">
-    <div class="col-md-offset-2 col-md-8">
-      <%= form.collection_check_boxes :alergeno_ids,
-        Alergeno.all, :id, :nombre do |cb| %>
-      <% cb.label(class: "checkbox-inline input_checkbox"){cb.check_box(class: "checkbox") + cb.text} %>
-      <% end %>
+    <div class="row">
+      <div class="col-md-offset-2 col-md-8">
+        <%= form.collection_check_boxes :alergeno_ids,
+          Alergeno.all, :id, :nombre do |cb| %>
+          <div>
+            <%= cb.label(class: "form-check-label"){cb.check_box(class: "form-check-input") + " " +  cb.text} %>
+          </div>
+        <% end %>
+      </div>
     </div>
-  </div>
 </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions mt-3">
+    <%= form.submit "Guardar ingrediente", class: "btn btn-success text-white" %>
   </div>
 <% end %>

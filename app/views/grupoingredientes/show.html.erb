@@ -1,17 +1,11 @@
 <div class="container mt-3 d-grid gap-3">
 
   <div class="row">
-    <table class="shadow">
-      <thead>
-        <tr>
-          <th><%= @grupoingrediente.nombre %></th>
-        </tr>
-      </thead>
-    </table>
+    <h1><%= @grupoingrediente.nombre %></h1>
   </div>
 
   <div class="row">
-    <%= link_to 'Editar', edit_grupoingrediente_path(@grupoingrediente),
+    <%= link_to "Editar #{@grupoingrediente.nombre}", edit_grupoingrediente_path(@grupoingrediente),
     class: "btn btn-warning text-white" %>
   </div>
 

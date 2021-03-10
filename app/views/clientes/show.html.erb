@@ -1,11 +1,14 @@
 <div class="container d-grid gap-3 mt-3">
 
   <div class="row">
+    <h1><%= @cliente.nombre %></h1>
+  </div>
+
+  <div class="row">
       <table class="shadow text-start">
         <thead>
           <tr>
-            <td><strong><%= @cliente.nombre %></strong></td>
-            <td colspan="2"></td>
+            <td colspan="3"></td>
           </tr>
         </thead>
         <tbody>
@@ -38,7 +41,7 @@
   </div>
 
   <div class="row">
-      <%= link_to 'Editar cliente', edit_cliente_path(@cliente),
+      <%= link_to "Editar #{@cliente.nombre}", edit_cliente_path(@cliente),
        class: "btn btn-warning text-white" %>
   </div>
 
