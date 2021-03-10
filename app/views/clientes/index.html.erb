@@ -1,31 +1,35 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <h1>Clientes</h1>
 
-<h1>Clientes</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Cifnif</th>
-      <th>Nombre</th>
-      <th>Rol</th>
-      <th colspan="3">Acciones</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @clientes.each do |cliente| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= cliente.cifNif %></td>
-        <td><%= cliente.nombre %></td>
-        <td><%= cliente.role.nombre %></td>
-        <td><%= link_to 'Show', cliente %></td>
-        <td><%= link_to 'Edit', edit_cliente_path(cliente) %></td>
-        <td><%= link_to 'Destroy', cliente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Cif / Nif</th>
+        <th>Nombre</th>
+        <th>Rol</th>
+        <th colspan="3">Acciones</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @clientes.each do |cliente| %>
+        <tr>
+          <td><%= cliente.cifNif %></td>
+          <td><%= cliente.nombre %></td>
+          <td><%= cliente.role.nombre %></td>
+          <td><%= link_to 'Mostrar', cliente,
+             class:"btn btn-sm btn-primary text-white" %></td>
+          <td><%= link_to 'Editar', edit_cliente_path(cliente),
+             class:"btn btn-sm btn-warning text-white" %></td>
+          <td><%= link_to 'Eliminar', cliente, method: :delete,
+             class:"btn btn-sm btn-danger text-white",
+             data: { confirm: '¿Seguro?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
-<%= link_to 'New Cliente', new_cliente_path %>
+<div class="row">
+  <%= link_to 'Nuevo Cliente', new_cliente_path, class:"btn btn-success text-white" %>
+</div>

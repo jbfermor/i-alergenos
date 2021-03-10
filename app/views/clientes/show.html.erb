@@ -1,59 +1,77 @@
-<p id="notice"><%= notice %></p>
+<div class="row mt-3">
+  <div class="col-12">
+    <table class="shadow text-start">
+      <thead>
+        <tr>
+          <td><strong><%= @cliente.nombre %></strong></td>
+          <td colspan="2"></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Cif/ Nif: </strong></td>
+          <td colspan="2"><%= @cliente.cifNif %></td>
+        </tr>
+        <tr>
+          <td><strong>Direccion: </strong></td>
+          <td colspan="2"><%= @cliente.direccion %></td>
+        </tr>
+        <tr>
+          <td><strong>Localidad: </strong></td>
+          <td colspan="2"><%= @cliente.localidad %></td>
+        </tr>
+        <tr>
+          <td><strong>Cp: </strong></td>
+          <td colspan="2"><%= @cliente.cp %></td>
+        </tr>
+        <tr>
+          <td><strong>Provincia: </strong></td>
+          <td colspan="2"><%= @cliente.provincia %></td>
+        </tr>
+        <tr>
+          <td><strong>Telefono: </strong></td>
+          <td colspan="2"><%= @cliente.telefono %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+<div >
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @cliente.nombre %>
-</p>
+<div class="row mt-3">
+  <div class="col-12">
+    <table class="shadow">
+      <thead>
+        <tr>
+          <th colspan="3">Lista de menus:</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @lista_menus.empty? %>
+          <tr>
+            <td colspan="3">No hay ningún menú creado todavía</td>
+          </tr>
+        <% else %>
+          <% @lista_menus.each do |menu| %>
+            <tr>
+              <td class= "text-start">
+                <%= menu.nombre %>
+              </td>
+              <td colspan="2">
+                <%= link_to "Mostrar", menu_path(menu.id),
+                 class: "btn btn-sm btn-primary text-white"%>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 
-<p>
-  <strong>Cifnif:</strong>
-  <%= @cliente.cifNif %>
-</p>
+<div class="row">
+  <%= link_to 'Editar', edit_cliente_path(@cliente), class: "btn btn-warning text-white" %>
+</div>
 
-<p>
-  <strong>Direccion:</strong>
-  <%= @cliente.direccion %>
-</p>
-
-<p>
-  <strong>Localidad:</strong>
-  <%= @cliente.localidad %>
-</p>
-
-<p>
-  <strong>Cp:</strong>
-  <%= @cliente.cp %>
-</p>
-
-<p>
-  <strong>Provincia:</strong>
-  <%= @cliente.provincia %>
-</p>
-
-<p>
-  <strong>Telefono:</strong>
-  <%= @cliente.telefono %>
-</p>
-
-<table>
-    <tr>
-      <th>Lista de menus:</th>
-    </tr>
-    <% if @lista_menus.empty? %>
-      <tr>
-        <td>No hay ningún menú creado todavía</td>
-      </tr>
-    <% else %>
-    <%= @lista_menus.each do |menu| %>
-      <tr>
-        <td>
-          <%= menu.nombre %>
-        </td>
-      </tr>
-    <% end %>
-  <% end %>
-</table>
-
-
-<%= link_to 'Edit', edit_cliente_path(@cliente) %> |
-<%= link_to 'Back', clientes_path %>
+<div class="row">
+  <%= link_to 'Atrás', clientes_path, class: "btn btn-danger text-white" %>
+</div>

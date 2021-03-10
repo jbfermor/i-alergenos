@@ -12,58 +12,61 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :email %><br>
-    <%= form.text_field :email %>
+    <%= form.label :email, class: "form-label" %><br>
+    <%= form.text_field :email, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :password %><br>
-    <%= form.password_field :password, placeholder: "Leave blank if unchanged" %>
+    <%= form.label :password, class: "form-label" %><br>
+    <%= form.password_field :password,
+     placeholder: "Si no deseas cambiarlo, déjalo en blanco",
+     class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :nombre %>
-    <%= form.text_field :nombre %>
+    <%= form.label :nombre, class: "form-label" %>
+    <%= form.text_field :nombre, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :cifNif %>
-    <%= form.text_field :cifNif %>
+    <%= form.label "Cif / Nif", class: "form-label" %>
+    <%= form.text_field :cifNif, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :direccion %>
-    <%= form.text_field :direccion %>
+    <%= form.label :direccion, class: "form-label" %>
+    <%= form.text_field :direccion, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :localidad %>
-    <%= form.text_field :localidad %>
+    <%= form.label :localidad, class: "form-label" %>
+    <%= form.text_field :localidad, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :cp %>
-    <%= form.number_field :cp %>
+    <%= form.label :cp, class: "form-label" %>
+    <%= form.number_field :cp, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :provincia %>
-    <%= form.text_field :provincia %>
+    <%= form.label :provincia, class: "form-label" %>
+    <%= form.text_field :provincia, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :telefono %>
-    <%= form.number_field :telefono %>
+    <%= form.label :telefono, class: "form-label" %>
+    <%= form.number_field :telefono, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label "Rol" %>
+    <%= form.label "Rol", class: "form-label" %>
     <%= collection_select(
-    :cliente, :role_id, Role.all, :id, :nombre, { prompt: true }
+    :cliente, :role_id, Role.all, :id, :nombre, { prompt: true},
+    {class: "form-select"}
     ) %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions row">
+    <%= form.submit "Guardar cliente", class: "btn btn-success" %>
   </div>
 <% end %>

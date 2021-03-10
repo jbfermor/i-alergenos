@@ -1,6 +1,13 @@
-<h1>Editar cliente</h1>
+<div class="container">
+  <h1>Editar cliente</h1>
 
-<%= render 'form', cliente: @cliente %>
+  <%= render 'form', cliente: @cliente %>
+</div>
 
-<%= link_to 'Show', @cliente %> |
-<%= link_to 'Back', clientes_path %>
+<div class="row">
+  <%= link_to 'Mostrar', @cliente, class: "btn btn-warning text-white" %>
+</div>
+
+<div class="row">
+  <%= link_to 'Atrás', clientes_path, class: "btn btn-danger text-white" %>
+</div>
