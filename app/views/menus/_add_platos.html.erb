@@ -1,26 +1,25 @@
-<div class="row">
-  <div class="col-12">
-    <table>
-      <thead>
-        <tr>
-          <th>Nombre del plato</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% Plato.all.each do |p| %>
-        <tr>
-          <td>
-            <%= p.nombre %>
-          </td>
-          <td>
-            <%= button_to "Añadir",
-            menu_platos_path(:plato_id => p.id,
-            :menu_id => @menu.id),
-            class: "btn btn-success btn-sm" %>
-          </td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+
+  <div class="row">
+      <table>
+        <thead>
+          <tr>
+            <th colspan="2">Nombre del plato</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% Plato.all.each do |p| %>
+          <tr>
+            <td>
+              <%= p.nombre %>
+            </td>
+            <td>
+              <%= button_to "Añadir",
+              menu_platos_path(:plato_id => p.id,
+              :menu_id => @menu.id),
+              class: "btn btn-success btn-sm" %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
