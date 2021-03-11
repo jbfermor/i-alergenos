@@ -1,13 +1,17 @@
 <div class="container">
-  <h1>Editar cliente</h1>
+
+  <div class="row">
+    <h1>Editar cliente</h1>
+  </div>
 
   <%= render 'form', cliente: @cliente %>
-</div>
 
-<div class="row">
-  <%= link_to 'Mostrar', @cliente, class: "btn btn-warning text-white" %>
-</div>
+  <div class="row">
+    <%= link_to 'Mostrar', @cliente, class: "btn btn-warning text-white" %>
+  </div>
 
-<div class="row">
-  <%= link_to 'Atrás', clientes_path, class: "btn btn-danger text-white" %>
+  <div class="row">
+    <%= link_to 'Atrás', clientes_path, class: "btn btn-danger text-white" %>
+  </div>
+  
 </div>

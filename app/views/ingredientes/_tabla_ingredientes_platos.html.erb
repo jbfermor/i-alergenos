@@ -1,0 +1,18 @@
+<div class="row">
+  <table>
+    <thead>
+      <tr>
+        <th colspan="3">Platos con este ingrediente</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @ingrediente.platos.each do |p| %>
+        <tr>
+          <td colspan="2"><%= p.nombre %></td>
+          <td> <%= link_to "Mostrar", plato_path(p.id),
+            class: "btn btn-sm btn-primary text-white" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

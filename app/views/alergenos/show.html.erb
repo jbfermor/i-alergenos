@@ -1,57 +1,23 @@
-<div class="container p-4">
-  <div class="card">
-  <h5 class="card-header"><%= @alergeno.nombre %> </h5>
-  <div class="card-body">
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">
-        <h6 class="card-title">Alimentos con este alérgeno: </h6>
-        <table class = "text-start">
-          <thead>
-            <tr>
-              <th>Nombre</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @alergeno.ingredientes.each do |i| %>
-            <tr>
-              <td>
-                <%= i.nombre %>
-              </td>
-            </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </li>
-      <li class="list-group-item mt-3">
-        <h6>Platos con este alérgeno: </h6>
-        <table class = "text-start">
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th colspan="3">Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @alergeno.platos.each do |p| %>
-            <tr>
-              <td>
-                <%= p.nombre %>
-              </td>
-              <td colspan="3">
-                <%= link_to "Ver plato", plato_path(p),
-                 class: "btn btn-sm btn-primary text-white" %>
-              </td>
-            </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </li>
-    </ul>
-  </div>
-</div>
-</div>
+<div class="container">
 
-<div class="row"><%= link_to 'Editar',
-   edit_alergeno_path(@alergeno), class: "btn btn-warning text-white" %></div>
-<div class="row"><%= link_to 'Atrás',
-   alergenos_path, class: "btn btn-danger text-white" %></div>
+  <div class="row">
+    <h1>
+      <img src="<%= asset_path "#{@alergeno.img}" %>" alt="" width="50px">
+      <%= @alergeno.nombre %>
+    </h1>
+  </div>
+
+  <%= render "alergenos/tabla_alergenos_ingredientes" %>
+
+  <%= render "alergenos/tabla_alergenos_platos" %>
+
+  <div class="row">
+    <%= link_to 'Editar', edit_alergeno_path(@alergeno),
+     class: "btn btn-warning text-white" %>
+   </div>
+
+  <div class="row"><%= link_to 'Atrás', alergenos_path,
+    class: "btn btn-danger text-white" %>
+  </div>
+
+</div>

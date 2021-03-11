@@ -1,9 +1,13 @@
-<div class="container mt-3">
-  <h1>Nuevo Grupo de ingrediente</h1>
+<div class="container">
+
+  <div class="row">
+    <h1>Nuevo Grupo de ingrediente</h1>
+  </div>
 
   <%= render 'form', grupoingrediente: @grupoingrediente %>
-</div>
 
-<div class="row">
-  <%= link_to 'Back', grupoingredientes_path, class: "btn btn-danfer text-white" %>
+  <div class="row">
+    <%= link_to 'Atrás', grupoingredientes_path, class: "btn btn-danger text-white" %>
+  </div>
+
 </div>

@@ -1,0 +1,18 @@
+<div class="row">
+  <table>
+    <thead>
+      <tr>
+        <th colspan="2"> Menús con este plato</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @plato.menus.each do |m| %>
+        <tr>
+          <td><%= m.nombre %></td>
+          <td><%= link_to "Mostrar", menu_path(m.id),
+          class: "btn btn-sm btn-primary text-white" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,28 @@
+<div class="row">
+  <table>
+    <thead>
+      <tr>
+        <th colspan="4">Platos con este alérgeno:</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @alergeno.ingredientes.empty? %>
+        <tr>
+          <td>No hay platos con este alérgeno todavía</td>
+        </tr>
+      <% else %>
+        <% @alergeno.platos.each do |p| %>
+          <tr>
+            <td>
+              <%= p.nombre %>
+            </td>
+            <td colspan="3">
+              <%= link_to "Ver plato", plato_path(p),
+               class: "btn btn-sm btn-primary text-white" %>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,21 @@
+<div class="row">
+  <table>
+    <thead>
+      <tr>
+        <th>Ingredientes del grupo</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @grupoingrediente.ingredientes.each do |i| %>
+      <tr>
+        <td>
+          <%= i.nombre %>
+        </td>
+        <td colspan="2"><%= link_to "Mostrar", ingrediente_path(i.id),
+          class: "btn btn-sm btn-primary text-white" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -23,7 +23,7 @@
    margin-bottom: 1rem;
    border-color: black;
    vertical-align: middle;
-
+   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15)
  }
 
  table > :not(caption) > * > * {
@@ -58,4 +58,9 @@ table > tbody > tr:hover {
 
 .btn {
   color: white;
+}
+
+.container {
+  display: grid;
+  gap: 1rem;
 }

@@ -1,22 +1,24 @@
-<%= form_with(model: plato) do |form| %>
-  <% if plato.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(plato.errors.count, "error") %> prohibited this plato from being saved:</h2>
+<div class="row">
+  <%= form_with(model: plato) do |form| %>
+    <% if plato.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(plato.errors.count, "error") %> prohibited this plato from being saved:</h2>
 
-      <ul>
-        <% plato.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% plato.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :nombre, class: "form-label" %>
+      <%= form.text_field :nombre, class: "form-control" %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Guardar plato", class: "btn btn-success text-white" %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :nombre, class: "form-label" %>
-    <%= form.text_field :nombre, class: "form-control" %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit "Guardar plato", class: "btn btn-success text-white" %>
-  </div>
-<% end %>
+</div>

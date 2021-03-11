@@ -1,12 +1,16 @@
-<div class="container p-3">
-  <h1>Editar alérgenos</h1>
+<div class="container">
 
-  <%= render 'form', alergeno: @alergeno %>
+  <div class="row">
+    <h1>Editar alérgenos</h1>
+    <%= render 'form', alergeno: @alergeno %>
+  </div>
 
-</div>
-<div class="row">
-    <%= link_to 'Mostrar', @alergeno, class: "btn btn-primary text-white" %>
-</div>
-<div class="row">
-      <%= link_to 'Atrás', alergenos_path, class: "btn btn-danger text-white" %>
+  <div class="row">
+      <%= link_to 'Mostrar', @alergeno, class: "btn btn-primary text-white" %>
+  </div>
+
+  <div class="row">
+        <%= link_to 'Atrás', alergenos_path, class: "btn btn-danger text-white" %>
+  </div>
+  
 </div>

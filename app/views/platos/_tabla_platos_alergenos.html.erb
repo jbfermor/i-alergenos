@@ -1,0 +1,19 @@
+<div class="row">
+  <table>
+    <thead>
+      <tr>
+        <td colspan="3">Alérgenos de este plato</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @plato.alergenos.each do |a| %>
+        <tr>
+          <td><%= a.nombre %></td>
+          <td><img src="<%= asset_path "#{a.img}" %>" alt="" width="50px"></td>
+          <td><%= link_to "Mostrar", menu_path(a.id),
+          class: "btn btn-sm btn-primary text-white" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

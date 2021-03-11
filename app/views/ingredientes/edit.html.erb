@@ -1,12 +1,16 @@
 <div class="container">
+
   <div class="row">
     <h1>Editando Ingrediente</h1>
-
-    <%= render 'form', ingrediente: @ingrediente %>
   </div>
 
-  <div class="row mt-3">
+      <%= render 'form', ingrediente: @ingrediente %>
+
+  <div class="row">
     <%= link_to 'Mostrar', @ingrediente, class: "btn btn-warning text-white" %>
+  </div>
+
+  <div class="row">
     <%= link_to 'Atrás', ingredientes_path, class: "btn btn-danger text-white" %>
   </div>
 </div>

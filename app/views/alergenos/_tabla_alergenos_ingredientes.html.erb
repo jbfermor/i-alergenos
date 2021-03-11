@@ -1,0 +1,24 @@
+<div class="row">
+  <table>
+    <thead>
+      <tr>
+        <th>Ingredientes con este alérgeno: </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @alergeno.ingredientes.empty? %>
+        <tr>
+          <td>No hay ingredientes con este alérgeno todavía</td>
+        </tr>
+      <% else %>
+        <% @alergeno.ingredientes.each do |i| %>
+          <tr>
+            <td>
+              <%= i.nombre %>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

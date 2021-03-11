@@ -30,7 +30,8 @@
               </td>
               <td>
                 <%= link_to "Eliminar",
-                 ingrediente_path(i.id),
+                 plato_ingrediente_path(:ingrediente_id => i.id,
+                  :plato_id => @plato.id),
                  class: "btn btn-danger btn-sm text-white",
                  method: :delete %>
               </td>

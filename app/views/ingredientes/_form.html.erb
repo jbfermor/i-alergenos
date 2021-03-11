@@ -1,41 +1,43 @@
-<%= form_with(model: ingrediente) do |form| %>
-  <% if ingrediente.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(ingrediente.errors.count, "error") %> prohibited this ingrediente from being saved:</h2>
+<div class="row">
+  <%= form_with(model: ingrediente) do |form| %>
+    <% if ingrediente.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(ingrediente.errors.count, "error") %> prohibited this ingrediente from being saved:</h2>
 
-      <ul>
-        <% ingrediente.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% ingrediente.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :nombre, class: "form-label" %>
+      <%= form.text_field :nombre, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label "Grupo de alimentos", class: "form-label" %>
+      <%= collection_select(:ingrediente, :grupoingrediente_id,
+       Grupoingrediente.all, :id, :nombre, {prompt: "Seleeciona un grupo"}, {class: "form-select"})  %>
+    </div>
+
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+          <%= form.collection_check_boxes :alergeno_ids,
+            Alergeno.all, :id, :nombre do |cb| %>
+            <div>
+              <%= cb.label(class: "form-check-label"){cb.check_box(class: "form-check-input") + " " +  cb.text} %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+  </div>
+
+    <div class="actions mt-3">
+      <%= form.submit "Guardar ingrediente", class: "btn btn-success text-white" %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :nombre, class: "form-label" %>
-    <%= form.text_field :nombre, class: "form-control" %>
-  </div>
-
-  <div class="field">
-    <%= form.label "Grupo de alimentos", class: "form-label" %>
-    <%= collection_select(:ingrediente, :grupoingrediente_id,
-     Grupoingrediente.all, :id, :nombre, {prompt: "Seleeciona un grupo"}, {class: "form-select"})  %>
-  </div>
-
-  <div class="form-group">
-    <div class="row">
-      <div class="col-md-offset-2 col-md-8">
-        <%= form.collection_check_boxes :alergeno_ids,
-          Alergeno.all, :id, :nombre do |cb| %>
-          <div>
-            <%= cb.label(class: "form-check-label"){cb.check_box(class: "form-check-input") + " " +  cb.text} %>
-          </div>
-        <% end %>
-      </div>
-    </div>
 </div>
-
-  <div class="actions mt-3">
-    <%= form.submit "Guardar ingrediente", class: "btn btn-success text-white" %>
-  </div>
-<% end %>

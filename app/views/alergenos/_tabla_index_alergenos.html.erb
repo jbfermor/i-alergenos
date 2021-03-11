@@ -1,0 +1,27 @@
+<div class="row">
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Imagen</th>
+          <th colspan="3">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @alergenos.each do |alergeno| %>
+          <tr>
+            <td><%= alergeno.nombre %></td>
+            <td> <img src="<%= asset_path "#{alergeno.img}" %>"
+               alt="" width="50px"></td>
+            <td><%= link_to 'Mostrar', alergeno,
+              class: "btn btn-sm btn-success text-white" %></td>
+            <td><%= link_to 'Editar', edit_alergeno_path(alergeno),
+               class: "btn btn-sm btn-warning text-white" %></td>
+            <td><%= link_to 'Eliminar', alergeno, method: :delete,
+               data: { confirm: '¿Seguro?' },
+               class: "btn btn-danger btn-sm text-white" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+</div>

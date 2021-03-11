@@ -1,0 +1,29 @@
+<div class="row">
+  <table>
+    <thead>
+      <tr>
+        <th>Cif / Nif</th>
+        <th>Nombre</th>
+        <th>Rol</th>
+        <th colspan="3">Acciones</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @clientes.each do |cliente| %>
+        <tr>
+          <td><%= cliente.cifNif %></td>
+          <td><%= cliente.nombre %></td>
+          <td><%= cliente.role.nombre %></td>
+          <td><%= link_to 'Mostrar', cliente,
+             class:"btn btn-sm btn-primary text-white" %></td>
+          <td><%= link_to 'Editar', edit_cliente_path(cliente),
+             class:"btn btn-sm btn-warning text-white" %></td>
+          <td><%= link_to 'Eliminar', cliente, method: :delete,
+             class:"btn btn-sm btn-danger text-white",
+             data: { confirm: '¿Seguro?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

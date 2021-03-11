@@ -1,72 +1,76 @@
-<%= form_with(model: cliente) do |form| %>
-  <% if cliente.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>
+<div class="row">
+  
+  <%= form_with(model: cliente) do |form| %>
+    <% if cliente.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>
 
-      <ul>
-        <% cliente.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% cliente.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :email, class: "form-label" %><br>
+      <%= form.text_field :email, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :password, class: "form-label" %><br>
+      <%= form.password_field :password,
+       placeholder: "Si no deseas cambiarlo, déjalo en blanco",
+       class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :nombre, class: "form-label" %>
+      <%= form.text_field :nombre, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label "Cif / Nif", class: "form-label" %>
+      <%= form.text_field :cifNif, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :direccion, class: "form-label" %>
+      <%= form.text_field :direccion, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :localidad, class: "form-label" %>
+      <%= form.text_field :localidad, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :cp, class: "form-label" %>
+      <%= form.number_field :cp, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :provincia, class: "form-label" %>
+      <%= form.text_field :provincia, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :telefono, class: "form-label" %>
+      <%= form.number_field :telefono, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label "Rol", class: "form-label" %>
+      <%= collection_select(
+      :cliente, :role_id, Role.all, :id, :nombre, { prompt: true},
+      {class: "form-select"}
+      ) %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Guardar cliente", class: "btn btn-success" %>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :email, class: "form-label" %><br>
-    <%= form.text_field :email, class: "form-control" %>
-  </div>
-
-  <div class="field">
-    <%= form.label :password, class: "form-label" %><br>
-    <%= form.password_field :password,
-     placeholder: "Si no deseas cambiarlo, déjalo en blanco",
-     class: "form-control" %>
-  </div>
-
-  <div class="field">
-    <%= form.label :nombre, class: "form-label" %>
-    <%= form.text_field :nombre, class: "form-control" %>
-  </div>
-
-  <div class="field">
-    <%= form.label "Cif / Nif", class: "form-label" %>
-    <%= form.text_field :cifNif, class: "form-control" %>
-  </div>
-
-  <div class="field">
-    <%= form.label :direccion, class: "form-label" %>
-    <%= form.text_field :direccion, class: "form-control" %>
-  </div>
-
-  <div class="field">
-    <%= form.label :localidad, class: "form-label" %>
-    <%= form.text_field :localidad, class: "form-control" %>
-  </div>
-
-  <div class="field">
-    <%= form.label :cp, class: "form-label" %>
-    <%= form.number_field :cp, class: "form-control" %>
-  </div>
-
-  <div class="field">
-    <%= form.label :provincia, class: "form-label" %>
-    <%= form.text_field :provincia, class: "form-control" %>
-  </div>
-
-  <div class="field">
-    <%= form.label :telefono, class: "form-label" %>
-    <%= form.number_field :telefono, class: "form-control" %>
-  </div>
-
-  <div class="field">
-    <%= form.label "Rol", class: "form-label" %>
-    <%= collection_select(
-    :cliente, :role_id, Role.all, :id, :nombre, { prompt: true},
-    {class: "form-select"}
-    ) %>
-  </div>
-
-  <div class="actions row">
-    <%= form.submit "Guardar cliente", class: "btn btn-success" %>
-  </div>
-<% end %>
+</div>

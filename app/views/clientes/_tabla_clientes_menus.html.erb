@@ -1,0 +1,28 @@
+<div class="row">
+    <table>
+      <thead>
+        <tr>
+          <th colspan="3">Lista de menus:</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @lista_menus.empty? %>
+          <tr>
+            <td colspan="3">No hay ningún menú creado todavía</td>
+          </tr>
+        <% else %>
+          <% @lista_menus.each do |menu| %>
+            <tr>
+              <td class= "text-start">
+                <%= menu.nombre %>
+              </td>
+              <td colspan="2">
+                <%= link_to "Mostrar", menu_path(menu.id),
+                 class: "btn btn-sm btn-primary text-white"%>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+</div>
