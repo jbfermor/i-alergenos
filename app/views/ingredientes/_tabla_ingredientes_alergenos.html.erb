@@ -2,7 +2,7 @@
   <table>
     <thead>
       <tr>
-        <th colspan="3">Alérgenos de este ingrediente</th>
+        <th colspan="4">Alérgenos de este ingrediente</th>
       </tr>
     </thead>
     <tbody>
@@ -12,6 +12,10 @@
           <td><img src="<%= asset_path "#{a.img}" %>" alt="" width="50px"></td>
           <td><%= link_to "Mostrar", alergeno_path(a.id),
           class: "btn btn-sm btn-primary text-white" %></td>
+          <td><%= link_to "Eliminar",
+          ingrediente_alergeno_path(:alergeno_id => a, :ingrediente_id => @ingrediente),
+          class: "btn btn-sm btn-danger text-white",
+          method: :delete %></td>
         </tr>
       <% end %>
     </tbody>

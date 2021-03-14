@@ -1,6 +1,6 @@
 class MenusController < ApplicationController
   before_action :authenticate_cliente!
-  before_action :set_menu, only: %i[ show edit update destroy ]
+  load_and_authorize_resource
 
   # GET /menus or /menus.json
   def index
@@ -9,12 +9,10 @@ class MenusController < ApplicationController
 
   # GET /menus/1 or /menus/1.json
   def show
-    @ptoadd = []
   end
 
   # GET /menus/new
   def new
-    @menu = Menu.new
   end
 
   # GET /menus/1/edit
@@ -23,7 +21,6 @@ class MenusController < ApplicationController
 
   # POST /menus or /menus.json
   def create
-    @menu = Menu.new(menu_params)
     @menu.cliente_id = current_cliente.id
 
     respond_to do |format|
@@ -65,9 +62,7 @@ class MenusController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_menu
-      @menu = Menu.find(params[:id])
-    end
+
 
     # Only allow a list of trusted parameters through.
     def menu_params

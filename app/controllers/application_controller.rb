@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
-
- protected
+  protected
+  alias_method :current_user, :current_cliente
 
  def configure_permitted_parameters
    devise_parameter_sanitizer.permit(
@@ -11,5 +11,13 @@ class ApplicationController < ActionController::Base
      :account_update, keys:  [:nombre, :cifNif, :direccion, :localidad, :cp,
      :provincia, :telefono])
  end
- 
+
+ rescue_from CanCan::AccessDenied do
+  flash[:error] = '¡Accesso denegado!'
+  redirect_to root_url
+end
+
+
+
+
 end

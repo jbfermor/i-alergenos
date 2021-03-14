@@ -1,6 +1,6 @@
 class ClientesController < ApplicationController
   before_action :authenticate_cliente!
-  before_action :set_cliente, only: %i[ show edit update destroy ]
+  load_and_authorize_resource
 
   # GET /clientes or /clientes.json
   def index
@@ -14,7 +14,6 @@ class ClientesController < ApplicationController
 
   # GET /clientes/new
   def new
-    @cliente = Cliente.new
   end
 
   # GET /clientes/1/edit
@@ -23,7 +22,6 @@ class ClientesController < ApplicationController
 
   # POST /clientes or /clientes.json
   def create
-    @cliente = Cliente.new(cliente_params)
 
     respond_to do |format|
       if @cliente.save
@@ -68,9 +66,6 @@ class ClientesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_cliente
-      @cliente = Cliente.find(params[:id])
-    end
 
     # Only allow a list of trusted parameters through.
     def cliente_params
@@ -80,4 +75,10 @@ class ClientesController < ApplicationController
     def needs_password?(_user, params)
       params[:password].present?
     end
+
+    def current_cliente
+      @cliente
+    end
+
+
 end

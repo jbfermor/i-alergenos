@@ -1,5 +1,6 @@
 class GrupoingredientesController < ApplicationController
-  before_action :set_grupoingrediente, only: %i[ show edit update destroy ]
+  before_action :authenticate_cliente!
+  load_and_authorize_resource
 
   # GET /grupoingredientes or /grupoingredientes.json
   def index
@@ -12,7 +13,7 @@ class GrupoingredientesController < ApplicationController
 
   # GET /grupoingredientes/new
   def new
-    @grupoingrediente = Grupoingrediente.new
+
   end
 
   # GET /grupoingredientes/1/edit
@@ -21,7 +22,6 @@ class GrupoingredientesController < ApplicationController
 
   # POST /grupoingredientes or /grupoingredientes.json
   def create
-    @grupoingrediente = Grupoingrediente.new(grupoingrediente_params)
 
     respond_to do |format|
       if @grupoingrediente.save
@@ -58,9 +58,6 @@ class GrupoingredientesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_grupoingrediente
-      @grupoingrediente = Grupoingrediente.find(params[:id])
-    end
 
     # Only allow a list of trusted parameters through.
     def grupoingrediente_params

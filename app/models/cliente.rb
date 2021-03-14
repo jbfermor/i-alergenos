@@ -7,4 +7,9 @@ class Cliente < ApplicationRecord
 
   belongs_to :role
   has_many :menus
+
+  def admin?
+    role.nombre == "admin"
+  end
+
 end

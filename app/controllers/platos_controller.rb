@@ -1,5 +1,6 @@
 class PlatosController < ApplicationController
-  before_action :set_plato, only: %i[ show edit update destroy ]
+  before_action :authenticate_cliente!
+  load_and_authorize_resource
 
   # GET /platos or /platos.json
   def index
@@ -12,7 +13,7 @@ class PlatosController < ApplicationController
 
   # GET /platos/new
   def new
-    @plato = Plato.new
+
   end
 
   # GET /platos/1/edit
@@ -21,7 +22,6 @@ class PlatosController < ApplicationController
 
   # POST /platos or /platos.json
   def create
-    @plato = Plato.new(plato_params)
 
     respond_to do |format|
       if @plato.save
@@ -58,9 +58,6 @@ class PlatosController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_plato
-      @plato = Plato.find(params[:id])
-    end
 
     # Only allow a list of trusted parameters through.
     def plato_params

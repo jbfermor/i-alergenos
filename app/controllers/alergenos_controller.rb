@@ -1,5 +1,6 @@
 class AlergenosController < ApplicationController
-  before_action :set_alergeno, only: %i[ show edit update destroy ]
+  before_action :authenticate_cliente!
+  load_and_authorize_resource
 
   # GET /alergenos or /alergenos.json
   def index
@@ -12,7 +13,6 @@ class AlergenosController < ApplicationController
 
   # GET /alergenos/new
   def new
-    @alergeno = Alergeno.new
   end
 
   # GET /alergenos/1/edit
@@ -21,7 +21,6 @@ class AlergenosController < ApplicationController
 
   # POST /alergenos or /alergenos.json
   def create
-    @alergeno = Alergeno.new(alergeno_params)
 
     respond_to do |format|
       if @alergeno.save
@@ -58,9 +57,6 @@ class AlergenosController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_alergeno
-      @alergeno = Alergeno.find(params[:id])
-    end
 
     # Only allow a list of trusted parameters through.
     def alergeno_params

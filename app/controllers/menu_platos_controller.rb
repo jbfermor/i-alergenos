@@ -1,4 +1,7 @@
 class MenuPlatosController < ApplicationController
+  before_action :authenticate_cliente!
+  load_and_authorize_resource
+
   def create
     plato_elegido = Plato.find(params[:plato_id])
     menu = Menu.find(params[:menu_id])

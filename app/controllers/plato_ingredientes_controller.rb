@@ -1,4 +1,7 @@
 class PlatoIngredientesController < ApplicationController
+  before_action :authenticate_cliente!
+  load_and_authorize_resource
+
   def create
     ingrediente = Ingrediente.find(params[:ingrediente_id])
     plato = Plato.find(params[:plato_id])
