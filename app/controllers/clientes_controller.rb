@@ -64,12 +64,32 @@ class ClientesController < ApplicationController
     end
   end
 
+  def suscribir
+    @cliente = Cliente.find(params[:id])
+    if !@cliente.suscriptor
+      @cliente.update_column(:suscriptor, true)
+      redirect_to @cliente, notice: "Tu suscripción ahora está activa"
+    else
+      redirect_to @cliente, notice: "¡Ya estás suscrit@!"
+    end
+  end
+
+  def eliminar_suscripcion
+    @cliente = Cliente.find(params[:id])
+    if @cliente.suscriptor
+      @cliente.update_column(:suscriptor, false)
+      redirect_to @cliente, notice: "Tu suscripción se ha desactivado"
+    else
+      redirect_to @cliente, notice: "¡No estás suscrit@ todavía!"
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
 
     # Only allow a list of trusted parameters through.
     def cliente_params
-      params.require(:cliente).permit(:nombre, :cifNif, :direccion, :localidad, :cp, :provincia, :telefono, :role_id, :email, :password, :password_confirmation)
+      params.require(:cliente).permit(:nombre, :cifNif, :direccion, :localidad, :cp, :provincia, :telefono, :role_id, :email, :password, :password_confirmation, :suscriptor)
     end
 
     def needs_password?(_user, params)

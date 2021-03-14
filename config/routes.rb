@@ -11,7 +11,12 @@ Rails.application.routes.draw do
   devise_for :clientes
   scope "/admin" do
     resources :menus
-    resources :clientes
+    resources :clientes do
+      member do
+        patch "suscribir", to: "clientes#suscribir"
+        patch "eliminar_suscripcion", to: "clientes#eliminar_suscripcion"
+      end
+    end
     resources :roles
     resources :grupoingredientes
     resources :alergenos

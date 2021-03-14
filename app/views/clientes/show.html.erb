@@ -1,6 +1,12 @@
 <div class="container">
 
   <div class="row">
+    <%= link_to "Suscribirse", suscribir_cliente_path,
+      method: :patch,
+      class: "btn btn-info text-white" %>
+  </div>
+
+  <div class="row">
     <h1><%= @cliente.nombre %></h1>
   </div>
 
@@ -31,6 +37,16 @@
             <td><strong>Telefono: </strong></td>
             <td colspan="2"><%= @cliente.telefono %></td>
           </tr>
+          <tr>
+            <td><strong>Suscripción: </strong></td>
+            <td colspan="2">
+              <% if @cliente.suscriptor == true %>
+                <%= "Suscripción activa" %>
+              <% else %>
+                <%= "No estás suscrit@ todavía" %>
+              <% end %>
+            </td>
+          </tr>
         </tbody>
       </table>
   </div>
@@ -45,5 +61,10 @@
   <div class="row">
     <%= link_to 'Atrás', clientes_path, class: "btn btn-danger text-white" %>
   </div>
-  
+
+  <div class="row">
+    <%= link_to 'Cancelar suscripción', eliminar_suscripcion_cliente_path,
+    method: :patch, class: "btn btn-secondary text-white" %>
+  </div>
+
 </div>
