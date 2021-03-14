@@ -7,6 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <% if cliente_signed_in? %>
+          <% if @current_cliente&.admin? %>
             <li class="nav-item">
               <%= link_to "Alérgenos", alergenos_path, class:"nav-link" %>
             </li>
@@ -16,23 +17,23 @@
             <li class="nav-item">
               <%= link_to "Clientes", clientes_path, class:"nav-link" %>
             </li>
-
-            <li class="nav-item">
-              <%= link_to "Menus", menus_path, class:"nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Platos", platos_path, class:"nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Ingredientes", ingredientes_path, class:"nav-link" %>
-            </li>
-            <li>
-              <%= link_to "Editar perfil", edit_cliente_registration_path, class:"nav-link" %>
-            </li>
-            <li>
-              <%= link_to "Salir", destroy_cliente_session_path, method: :delete, class:"nav-link" %>
-            </li>
-          </ul>
+          <% end %>
+          <li class="nav-item">
+            <%= link_to "Menus", menus_path, class:"nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Platos", platos_path, class:"nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Ingredientes", ingredientes_path, class:"nav-link" %>
+          </li>
+          <li>
+            <%= link_to "Editar perfil", edit_cliente_registration_path, class:"nav-link" %>
+          </li>
+          <li>
+            <%= link_to "Salir", destroy_cliente_session_path, method: :delete, class:"nav-link" %>
+          </li>
+        </ul>
         <% else %>
             <li>
               <%= link_to "Registrarse", new_cliente_registration_path, class:"nav-link" %>
