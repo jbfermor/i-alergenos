@@ -62,6 +62,6 @@ class IngredientesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ingrediente_params
-      params.require(:ingrediente).permit(:nombre, :grupoingrediente_id, alergeno_ids: [])
+      params.require(:ingrediente).permit(:nombre, :grupoingrediente_id, :cliente_id, alergeno_ids: [])
     end
 end

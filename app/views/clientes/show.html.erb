@@ -1,12 +1,6 @@
 <div class="container">
 
   <div class="row">
-    <%= link_to "Suscribirse", suscribir_cliente_path,
-      method: :patch,
-      class: "btn btn-info text-white" %>
-  </div>
-
-  <div class="row">
     <h1><%= @cliente.nombre %></h1>
   </div>
 
@@ -62,9 +56,6 @@
     <%= link_to 'Atrás', clientes_path, class: "btn btn-danger text-white" %>
   </div>
 
-  <div class="row">
-    <%= link_to 'Cancelar suscripción', eliminar_suscripcion_cliente_path,
-    method: :patch, class: "btn btn-secondary text-white" %>
-  </div>
+
 
 </div>

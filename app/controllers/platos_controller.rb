@@ -4,7 +4,7 @@ class PlatosController < ApplicationController
 
   # GET /platos or /platos.json
   def index
-    @platos = Plato.all
+    @platos = Plato.where cliente_id: current_cliente
   end
 
   # GET /platos/1 or /platos/1.json
@@ -22,7 +22,7 @@ class PlatosController < ApplicationController
 
   # POST /platos or /platos.json
   def create
-
+    @plato.cliente = current_cliente
     respond_to do |format|
       if @plato.save
         format.html { redirect_to @plato, notice: "Plato was successfully created." }
@@ -61,6 +61,6 @@ class PlatosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def plato_params
-      params.require(:plato).permit(:nombre, alimento_ids: [], alergeno_ids: [])
+      params.require(:plato).permit(:nombre, :cliente_id, alimento_ids: [], alergeno_ids: [])
     end
 end

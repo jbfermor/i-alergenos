@@ -9,18 +9,26 @@
     </thead>
 
     <tbody>
-      <% @menus.each do |menu| %>
+      <% if @menus.empty? %>
         <tr>
-          <td><%= menu.nombre %></td>
-          <td><%= menu.cliente.nombre %></td>
-          <td><%= link_to 'Mostrar', menu,
-            class: "btn btn-sm btn-primary text-white" %></td>
-          <td><%= link_to 'Editar', edit_menu_path(menu.id),
-            class: "btn btn-sm btn-warning text-white" %></td>
-          <td><%= link_to 'Eliminar', menu, method: :delete,
-            class: "btn btn-sm btn-danger text-white",
-            data: { confirm: '¿Seguro?' } %></td>
+          <td>
+            No hay ningún menú añadido todavía
+          </td>
         </tr>
+      <% else %>
+        <% @menus.each do |menu| %>
+          <tr>
+            <td><%= menu.nombre %></td>
+            <td><%= menu.cliente.nombre %></td>
+            <td><%= link_to 'Mostrar', menu,
+              class: "btn btn-sm btn-primary text-white" %></td>
+            <td><%= link_to 'Editar', edit_menu_path(menu.id),
+              class: "btn btn-sm btn-warning text-white" %></td>
+            <td><%= link_to 'Eliminar', menu, method: :delete,
+              class: "btn btn-sm btn-danger text-white",
+              data: { confirm: '¿Seguro?' } %></td>
+          </tr>
+        <% end %>
       <% end %>
     </tbody>
   </table>

@@ -4,4 +4,5 @@ class Plato < ApplicationRecord
   has_many :plato_ingredientes, dependent: :destroy
   has_many :ingredientes, through: :plato_ingredientes
   has_many :alergenos, through: :ingredientes
+  belongs_to :cliente
 end

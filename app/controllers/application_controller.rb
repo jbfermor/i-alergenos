@@ -13,11 +13,12 @@ class ApplicationController < ActionController::Base
  end
 
  rescue_from CanCan::AccessDenied do
-  flash[:error] = '¡Accesso denegado!'
-  redirect_to root_url
-end
+    flash[:error] = '¡Accesso denegado!'
+    redirect_to root_url
+  end
 
-
-
+  def after_sign_in_path_for(resource)
+    menus_path # your path
+  end
 
 end

@@ -4,7 +4,7 @@ class GrupoingredientesController < ApplicationController
 
   # GET /grupoingredientes or /grupoingredientes.json
   def index
-    @grupoingredientes = Grupoingrediente.all
+    @grupoingredientes = Grupoingrediente.where cliente_id: current_cliente
   end
 
   # GET /grupoingredientes/1 or /grupoingredientes/1.json
@@ -61,6 +61,6 @@ class GrupoingredientesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def grupoingrediente_params
-      params.require(:grupoingrediente).permit(:nombre)
+      params.require(:grupoingrediente).permit(:nombre, :id_cliente)
     end
 end

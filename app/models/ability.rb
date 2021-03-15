@@ -8,7 +8,12 @@ class Ability
     if cliente.admin?
       can :manage, :all
     else
-      can :read, :all
+      can :manage, [Grupoingrediente, Ingrediente, Menu, Plato,
+        PlatoIngrediente, IngredienteAlergeno, MenuPlato, Cliente]
+    end
+
+    if cliente.suscriptor?
+    else
     end
     # Define abilities for the passed in user here. For example:
     #

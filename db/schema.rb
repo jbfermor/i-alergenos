@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_14_190236) do
+ActiveRecord::Schema.define(version: 2021_03_15_223447) do
 
   create_table "alergenos", force: :cascade do |t|
     t.string "nombre"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2021_03_14_190236) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.boolean "suscriptor", default: false
+    t.integer "suscriptor", default: 0
     t.index ["email"], name: "index_clientes_on_email", unique: true
     t.index ["reset_password_token"], name: "index_clientes_on_reset_password_token", unique: true
     t.index ["role_id"], name: "index_clientes_on_role_id"
@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 2021_03_14_190236) do
     t.string "nombre"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "cliente_id"
+    t.index ["cliente_id"], name: "index_grupoingredientes_on_cliente_id"
   end
 
   create_table "ingrediente_alergenos", force: :cascade do |t|
@@ -57,6 +59,8 @@ ActiveRecord::Schema.define(version: 2021_03_14_190236) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "grupoingrediente_id", null: false
+    t.integer "cliente_id"
+    t.index ["cliente_id"], name: "index_ingredientes_on_cliente_id"
     t.index ["grupoingrediente_id"], name: "index_ingredientes_on_grupoingrediente_id"
   end
 
@@ -82,6 +86,8 @@ ActiveRecord::Schema.define(version: 2021_03_14_190236) do
     t.string "nombre"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "cliente_id"
+    t.index ["cliente_id"], name: "index_platos_on_cliente_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -91,6 +97,9 @@ ActiveRecord::Schema.define(version: 2021_03_14_190236) do
   end
 
   add_foreign_key "clientes", "roles"
+  add_foreign_key "grupoingredientes", "clientes"
+  add_foreign_key "ingredientes", "clientes"
   add_foreign_key "ingredientes", "grupoingredientes"
   add_foreign_key "menus", "clientes"
+  add_foreign_key "platos", "clientes"
 end

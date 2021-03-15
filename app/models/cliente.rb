@@ -7,6 +7,9 @@ class Cliente < ApplicationRecord
 
   belongs_to :role
   has_many :menus
+  has_many :grupoingredientes
+  has_many :ingredientes
+  has_many :platos
 
   def admin?
     role.nombre == "admin"

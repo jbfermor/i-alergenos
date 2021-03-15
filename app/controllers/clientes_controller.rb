@@ -64,23 +64,23 @@ class ClientesController < ApplicationController
     end
   end
 
+  def suscripcion
+
+  end
+
   def suscribir
-    @cliente = Cliente.find(params[:id])
-    if !@cliente.suscriptor
-      @cliente.update_column(:suscriptor, true)
-      redirect_to @cliente, notice: "Tu suscripción ahora está activa"
-    else
-      redirect_to @cliente, notice: "¡Ya estás suscrit@!"
+    @cliente = @current_cliente
+    if @cliente.suscriptor == 0
+      @cliente.update_column(:suscriptor, 1)
+      redirect_to "/clientes/edit", notice: "Tu suscripción ahora está activa"
     end
   end
 
   def eliminar_suscripcion
-    @cliente = Cliente.find(params[:id])
-    if @cliente.suscriptor
-      @cliente.update_column(:suscriptor, false)
-      redirect_to @cliente, notice: "Tu suscripción se ha desactivado"
-    else
-      redirect_to @cliente, notice: "¡No estás suscrit@ todavía!"
+    @cliente = @current_cliente
+    if @cliente.suscriptor == 1
+      @cliente.update_column(:suscriptor, 0)
+      redirect_to "/clientes/edit", notice: "Tu suscripción se ha desactivado"
     end
   end
 

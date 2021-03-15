@@ -1,0 +1,40 @@
+<div class="container">
+
+  <div class="row">
+    <h1>Suscripcion</h1>
+  </div>
+
+  <% if @current_cliente.suscriptor == 0 %>
+
+    <div class="row">
+      <h2>
+        No estás suscrit@ todavía
+      </h2>
+    </div>
+    <div class="row">
+      <%= link_to "Suscribirse", cliente_suscribirse_path,
+        method: :patch,
+        class: "btn btn-info text-white" %>
+    </div>
+
+    <% else %>
+
+      <h2>
+        Tu suscripción está activa
+      </h2>
+      <div class="row">
+        <%= link_to "Eliminar suscripción",
+          cliente_eliminar_suscripcion_path,
+          method: :patch,
+          class: "btn btn-info text-white" %>
+      </div>
+
+    <% end %>
+
+
+
+
+
+
+
+</div>
