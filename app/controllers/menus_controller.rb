@@ -4,13 +4,13 @@ class MenusController < ApplicationController
 
   # GET /menus or /menus.json
   def index
-      @menus = Menu.where cliente_id: current_cliente
+    @menus = Menu.where cliente_id: current_cliente
   end
 
   # GET /menus/1 or /menus/1.json
   def show
-    @platos = Plato.all
-    @platos_s = Plato.where cliente_id: current_cliente
+    @platos_m = Plato.all
+    @platos_m_s = Plato.where cliente_id: current_cliente
   end
 
   # GET /menus/new

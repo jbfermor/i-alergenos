@@ -9,7 +9,8 @@ class Ability
       can :manage, :all
     else
       can :manage, [Grupoingrediente, Ingrediente, Menu, Plato,
-        PlatoIngrediente, IngredienteAlergeno, MenuPlato, Cliente]
+        PlatoIngrediente, IngredienteAlergeno, MenuPlato]
+      can [:suscripcion, :suscribir, :eliminar_suscripcion], Cliente
     end
 
     if cliente.suscriptor?

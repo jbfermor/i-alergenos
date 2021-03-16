@@ -6,19 +6,37 @@
       </tr>
     </thead>
     <tbody>
-      <% Plato.all.each do |p| %>
-        <tr>
-          <td>
-            <%= p.nombre %>
-          </td>
-          <td>
-            <%= button_to "Añadir",
-            menu_platos_path(:plato_id => p.id,
-            :menu_id => @menu.id),
-            class: "btn btn-success btn-sm" %>
-          </td>
-        </tr>
+      <% if current_cliente.suscriptor == 1 %>
+        <% @platos_m.each do |p| %>
+          <tr>
+            <td>
+              <%= p.nombre %>
+            </td>
+            <td>
+              <%= button_to "Añadir",
+              menu_platos_path(:plato_id => p.id,
+              :menu_id => @menu.id),
+              class: "btn btn-success btn-sm" %>
+            </td>
+          </tr>
+        <% end %>
+      <% else %>
+        <% @platos_m_s.each do |p| %>
+          <tr>
+            <td>
+              <%= p.nombre %>
+            </td>
+            <td>
+              <%= button_to "Añadir",
+              menu_platos_path(:plato_id => p.id,
+              :menu_id => @menu.id),
+              class: "btn btn-success btn-sm" %>
+            </td>
+          </tr>
+        <% end %>
       <% end %>
+
+
     </tbody>
   </table>
 </div>
