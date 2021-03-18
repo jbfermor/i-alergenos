@@ -15,4 +15,8 @@ class Cliente < ApplicationRecord
     role.nombre == "admin"
   end
 
+  def usuario?
+    role.nombre == "usuario"
+  end
+
 end

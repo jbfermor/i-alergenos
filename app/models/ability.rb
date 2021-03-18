@@ -7,15 +7,14 @@ class Ability
 
     if cliente.admin?
       can :manage, :all
-    else
-      can :manage, [Grupoingrediente, Ingrediente, Menu, Plato,
+    end
+
+    if cliente.usuario?
+      can [:read, :create, :update], [Grupoingrediente, Menu, Plato, Ingrediente,
         PlatoIngrediente, IngredienteAlergeno, MenuPlato]
       can [:suscripcion, :suscribir, :eliminar_suscripcion], Cliente
     end
 
-    if cliente.suscriptor?
-    else
-    end
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)

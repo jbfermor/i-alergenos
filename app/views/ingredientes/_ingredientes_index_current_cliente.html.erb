@@ -1,0 +1,19 @@
+<tbody>
+      <% @ingredientes.each do |ingrediente| %>
+        <tr>
+          <td><%= ingrediente.nombre %></td>
+          <td>
+            <% ingrediente.alergenos.each do |a| %>
+              <img src="<%= asset_path "#{a.img}" %>" alt="" width="40">
+            <% end %>
+          </td>
+          <td> <%= link_to 'Mostrar', ingrediente,
+            class: "btn btn-sm btn-primary text-white" %></td>
+            <td><%= link_to 'Editar', edit_ingrediente_path(ingrediente),
+              class: "btn btn-sm btn-warning text-white" %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
