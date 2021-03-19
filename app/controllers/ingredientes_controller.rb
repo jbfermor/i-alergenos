@@ -5,10 +5,6 @@ class IngredientesController < ApplicationController
   # GET /ingredientes or /ingredientes.json
   def index
     @ingredientes = Ingrediente.all
-    @ncol = 1
-    if @current_cliente.usuario?
-      @ncol = 3
-    end
   end
 
   # GET /ingredientes/1 or /ingredientes/1.json
