@@ -6,7 +6,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @plato.menus.each do |m| %>
+      <% @plato.menus.where(cliente_id: current_cliente.id).each do |m| %>
         <tr>
           <td><%= m.nombre %></td>
           <td><%= link_to "Mostrar", menu_path(m.id),

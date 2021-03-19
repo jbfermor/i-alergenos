@@ -5,8 +5,10 @@
   </div>
 
   <div class="row">
-    <%= link_to "Editar #{@plato.nombre}", edit_plato_path(@plato),
-     class: "btn btn-warning text-white" %>
+    <% if @plato.cliente_id == current_cliente.id %>
+      <%= link_to "Editar #{@plato.nombre}", edit_plato_path(@plato),
+       class: "btn btn-warning text-white" %>
+      <% end %>
   </div>
 
   <%= render "platos/tabla_platos_alergenos" %>
@@ -14,11 +16,13 @@
   <%= render "platos/tabla_platos_ingredientes" %>
 
   <div class="row">
+    <% if @plato.cliente_id == current_cliente.id %>
       <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
        data-bs-target="#add_ingredientes" aria-expanded="false"
         aria-controls="add_ingredientes">
         Añadir ingredientes al plato
       </button>
+    <% end %>
   </div>
 
   <div class="row">

@@ -4,7 +4,7 @@ class GrupoingredientesController < ApplicationController
 
   # GET /grupoingredientes or /grupoingredientes.json
   def index
-    @grupoingredientes = Grupoingrediente.where cliente_id: current_cliente
+    @grupoingredientes = Grupoingrediente.all
   end
 
   # GET /grupoingredientes/1 or /grupoingredientes/1.json

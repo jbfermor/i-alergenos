@@ -28,13 +28,15 @@
                  ingrediente_path(i.id),
                  class: "btn btn-primary btn-sm text-white"%>
               </td>
-              <td>
-                <%= link_to "Eliminar",
-                 plato_ingrediente_path(:ingrediente_id => i.id,
-                  :plato_id => @plato.id),
-                 class: "btn btn-danger btn-sm text-white",
-                 method: :delete %>
-              </td>
+              <% if @plato.cliente.id == current_cliente %>
+                <td>
+                  <%= link_to "Eliminar",
+                   plato_ingrediente_path(:ingrediente_id => i.id,
+                    :plato_id => @plato.id),
+                   class: "btn btn-danger btn-sm text-white",
+                   method: :delete %>
+                </td>
+              <% end %>
             </tr>
           <% end %>
         <% end %>

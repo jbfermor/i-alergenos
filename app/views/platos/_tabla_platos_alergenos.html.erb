@@ -6,13 +6,23 @@
       </tr>
     </thead>
     <tbody>
-      <% @plato.alergenos.each do |a| %>
-        <tr>
-          <td><%= a.nombre %></td>
-          <td><img src="<%= asset_path "#{a.img}" %>" alt="" width="50px"></td>
-          <td><%= link_to "Mostrar", menu_path(a.id),
-          class: "btn btn-sm btn-primary text-white" %></td>
+      <% if @plato.alergenos.empty? %>
+        <tr colspan="2">
+          <td>
+            Este plato no contiene alérgenos
+          </td>
         </tr>
+      <% else %>
+        <% @plato.alergenos.each do |a| %>
+          <tr>
+            <td><%= a.nombre %></td>
+            <td><img src="<%= asset_path "#{a.img}" %>" alt="" width="50px"></td>
+            <% if current_cliente.admin? %>
+              <td><%= link_to "Mostrar", alergeno_path(a.id),
+              class: "btn btn-sm btn-primary text-white" %></td>
+            <% end %>
+          </tr>
+        <% end %>
       <% end %>
     </tbody>
   </table>

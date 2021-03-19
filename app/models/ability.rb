@@ -4,6 +4,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(cliente)
+    alias_action :suscripcion, :suscribir, :eliminar_suscripcion, :to => :suscribe
 
     if cliente.admin?
       can :manage, :all
@@ -12,7 +13,7 @@ class Ability
     if cliente.usuario?
       can [:read, :create, :update], [Grupoingrediente, Menu, Plato, Ingrediente,
         PlatoIngrediente, IngredienteAlergeno, MenuPlato]
-      can [:suscripcion, :suscribir, :eliminar_suscripcion], Cliente
+      can :suscribe, Cliente
     end
 
     # Define abilities for the passed in user here. For example:

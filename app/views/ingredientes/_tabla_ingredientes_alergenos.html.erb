@@ -8,14 +8,19 @@
     <tbody>
       <% @ingrediente.alergenos.each do |a| %>
         <tr>
-          <td><%= a.nombre %></td>
-          <td><img src="<%= asset_path "#{a.img}" %>" alt="" width="50px"></td>
-          <td><%= link_to "Mostrar", alergeno_path(a.id),
-          class: "btn btn-sm btn-primary text-white" %></td>
-          <td><%= link_to "Eliminar",
-          ingrediente_alergeno_path(:alergeno_id => a, :ingrediente_id => @ingrediente),
-          class: "btn btn-sm btn-danger text-white",
-          method: :delete %></td>
+            <td><%= a.nombre %></td>
+            <td><img src="<%= asset_path "#{a.img}" %>" alt="" width="50px"></td>
+            <% if current_cliente.admin? %>
+              <td><%= link_to "Mostrar", alergeno_path(a.id),
+              class: "btn btn-sm btn-primary text-white" %></td>
+              <td><%= link_to "Eliminar",
+              ingrediente_alergeno_path(:alergeno_id => a, :ingrediente_id => @ingrediente),
+              class: "btn btn-sm btn-danger text-white",
+              method: :delete %></td>
+            <% else %>
+            <td colspan="2"><%= link_to "Mostrar", alergeno_path(a.id),
+            class: "btn btn-sm btn-primary text-white" %></td>
+            <% end %>
         </tr>
       <% end %>
     </tbody>
