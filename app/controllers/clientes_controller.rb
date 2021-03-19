@@ -1,10 +1,13 @@
 class ClientesController < ApplicationController
+
   before_action :authenticate_cliente!
   load_and_authorize_resource
 
+
   # GET /clientes or /clientes.json
   def index
-    @clientes = Cliente.all
+    #@clientes = Cliente.all
+    @pagy, @clientes = pagy(Cliente.all)
   end
 
   # GET /clientes/1 or /clientes/1.json

@@ -1,7 +1,11 @@
 class ApplicationController < ActionController::Base
+
+  include Pagy::Backend
+
   before_action :configure_permitted_parameters, if: :devise_controller?
   protected
   alias_method :current_user, :current_cliente
+
 
  def configure_permitted_parameters
    devise_parameter_sanitizer.permit(
