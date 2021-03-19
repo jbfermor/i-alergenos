@@ -6,12 +6,20 @@
       </tr>
     </thead>
     <tbody>
-      <% @plato.menus.where(cliente_id: current_cliente.id).each do |m| %>
+      <% if @plato.menus.empty? %>
         <tr>
-          <td><%= m.nombre %></td>
-          <td><%= link_to "Mostrar", menu_path(m.id),
-          class: "btn btn-sm btn-primary text-white" %></td>
+          <td>
+            No hay menús con este plato todavía
+          </td>
         </tr>
+      <% else %>
+        <% @plato.menus.where(cliente_id: current_cliente.id).each do |m| %>
+          <tr>
+            <td><%= m.nombre %></td>
+            <td><%= link_to "Mostrar", menu_path(m.id),
+            class: "btn btn-sm btn-primary text-white" %></td>
+          </tr>
+        <% end %>
       <% end %>
     </tbody>
   </table>

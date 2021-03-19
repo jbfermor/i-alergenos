@@ -4,11 +4,13 @@ class PlatosController < ApplicationController
 
   # GET /platos or /platos.json
   def index
+
     if current_cliente.suscriptor == 0
       @platos = Plato.where cliente_id: current_cliente
     else
       @platos = Plato.all
     end
+    
   end
 
   # GET /platos/1 or /platos/1.json

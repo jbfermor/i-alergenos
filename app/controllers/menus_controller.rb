@@ -4,7 +4,11 @@ class MenusController < ApplicationController
 
   # GET /menus or /menus.json
   def index
-    @menus = Menu.where cliente_id: current_cliente
+    if current_cliente.admin?
+      @menus = Menu.all
+    else
+      @menus = Menu.where cliente_id: current_cliente
+    end
   end
 
   # GET /menus/1 or /menus/1.json

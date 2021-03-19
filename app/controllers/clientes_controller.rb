@@ -10,6 +10,8 @@ class ClientesController < ApplicationController
   # GET /clientes/1 or /clientes/1.json
   def show
     @lista_menus = @cliente.menus
+    @lista_platos = @cliente.platos
+    @lista_ingredientes = @cliente.ingredientes
   end
 
   # GET /clientes/new

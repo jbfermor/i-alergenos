@@ -28,7 +28,7 @@
                  ingrediente_path(i.id),
                  class: "btn btn-primary btn-sm text-white"%>
               </td>
-              <% if @plato.cliente.id == current_cliente %>
+              <% if @plato.cliente.id == current_cliente || current_cliente.admin? %>
                 <td>
                   <%= link_to "Eliminar",
                    plato_ingrediente_path(:ingrediente_id => i.id,
