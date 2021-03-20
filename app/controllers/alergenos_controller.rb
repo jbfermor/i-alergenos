@@ -24,7 +24,7 @@ class AlergenosController < ApplicationController
 
     respond_to do |format|
       if @alergeno.save
-        format.html { redirect_to @alergeno, notice: "Alergeno was successfully created." }
+        format.html { redirect_to @alergeno, notice: "Alergeno creado" }
         format.json { render :show, status: :created, location: @alergeno }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -37,7 +37,7 @@ class AlergenosController < ApplicationController
   def update
     respond_to do |format|
       if @alergeno.update(alergeno_params)
-        format.html { redirect_to @alergeno, notice: "Alergeno was successfully updated." }
+        format.html { redirect_to @alergeno, notice: "Alergeno actualizado" }
         format.json { render :show, status: :ok, location: @alergeno }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -50,7 +50,7 @@ class AlergenosController < ApplicationController
   def destroy
     @alergeno.destroy
     respond_to do |format|
-      format.html { redirect_to alergenos_url, notice: "Alergeno was successfully destroyed." }
+      format.html { redirect_to alergenos_url, notice: "Alergeno eliminado" }
       format.json { head :no_content }
     end
   end
