@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
  end
 
  rescue_from CanCan::AccessDenied do
-    flash[:error] = '¡Accesso denegado!'
+    flash[:error] = '¡Accesso denegado! No tienes los permisos para hacer esto'
     redirect_to root_url
   end
 

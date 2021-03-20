@@ -25,4 +25,9 @@
         <% end %>
       </tbody>
     </table>
+
+    <div class="d-flex justify-content-center">
+      <%== pagy_bootstrap_nav(@pagy_lp) if @pagy_lp.pages > 1 %>
+    </div>
+
 </div>

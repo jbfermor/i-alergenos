@@ -16,17 +16,13 @@
   <body class= "d-grid gap-3">
 
     <% if cliente_signed_in? %>
-      <div class="row">
-        <div class="col-12 text-end">
+      <div class="row text-end">
           <p> Logado como <%= current_cliente.email %> </p>
-        </div>
       </div>
     <% end %>
 
     <div class="row">
-      <div class="col-12">
         <%= render "layouts/nav" %>
-      </div>
     </div>
 
     <div class="container">

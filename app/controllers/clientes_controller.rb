@@ -12,7 +12,7 @@ class ClientesController < ApplicationController
   # GET /clientes/1 or /clientes/1.json
   def show
     @lista_menus = @cliente.menus
-    @lista_platos = @cliente.platos
+    @pagy_lp, @lista_platos = pagy(@cliente.platos, items: 10)
     @lista_ingredientes = @cliente.ingredientes
   end
 
@@ -100,9 +100,7 @@ class ClientesController < ApplicationController
       params[:password].present?
     end
 
-    def current_cliente
-      @cliente
-    end
+
 
 
 end
