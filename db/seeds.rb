@@ -24,7 +24,7 @@ a12 = Alergeno.create(nombre: "Sésamo", img: "alergenos/sesamo.png")
 a13 = Alergeno.create(nombre: "Soja", img: "alergenos/soja.png")
 a14 = Alergeno.create(nombre: "Sulfitos", img: "alergenos/sulfitos.png")
 
-cl1 = Cliente.create(nombre: "admin", role_id: 1, mail: "admin@ejemplo.com",
+cl1 = Cliente.create(nombre: "admin", role_id: 1, email: "admin@ejemplo.com",
       password: "password")
-cl2 = Cliente.create(nombre: "usuario", mail: "usuario@ejemplo.com",
+cl2 = Cliente.create(nombre: "usuario", email: "usuario@ejemplo.com",
       password: "password")
