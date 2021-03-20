@@ -61,6 +61,6 @@ class GrupoingredientesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def grupoingrediente_params
-      params.require(:grupoingrediente).permit(:nombre, :id_cliente)
+      params.require(:grupoingrediente).permit(:nombre)
     end
 end
