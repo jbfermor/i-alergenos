@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-#r1 = Role.create(nombre: "admin")
-#r2 = Role.create(nombre: "usuario")
+r1 = Role.create(nombre: "admin")
+r2 = Role.create(nombre: "usuario")
 
 a1 = Alergeno.create(nombre: "Altramuz", img: "alergenos/altramuz.png")
 a2 = Alergeno.create(nombre: "Apio", img: "alergenos/apio.png")
