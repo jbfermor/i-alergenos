@@ -4,11 +4,12 @@ class IngredientesController < ApplicationController
 
   # GET /ingredientes or /ingredientes.json
   def index
-    @ingredientes = Ingrediente.all
+    @pagy, @ingredientes = pagy(Ingrediente.all)
   end
 
   # GET /ingredientes/1 or /ingredientes/1.json
   def show
+    @pagy_platos, @ingredientes = pagy(@ingrediente.platos)
   end
 
   # GET /ingredientes/new

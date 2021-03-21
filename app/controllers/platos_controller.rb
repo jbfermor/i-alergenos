@@ -6,9 +6,9 @@ class PlatosController < ApplicationController
   def index
 
     if current_cliente.suscriptor == 0
-      @platos = Plato.where cliente_id: current_cliente
+      @pagy, @platos = pagy(Plato.where cliente_id: current_cliente)
     else
-      @platos = Plato.all
+      @pagy, @platos = pagy(Plato.all)
     end
 
   end
