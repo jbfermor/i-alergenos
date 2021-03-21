@@ -12,14 +12,14 @@
             <td></td>
           </tr>
         <% else %>
-          <% @menu.menu_platos.each do |plato| %>
+          <% @menu.menu_platos.each do |menu_plato| %>
             <tr>
               <td>
-                <%= plato.plato.nombre %>
+                <%= menu_plato.plato.nombre %>
               </td>
               <td>
                 <%= link_to "Eliminar",
-                 menu_plato_path(plato, :menu_id => @menu.id),
+                 menu_plato_path(menu_plato, :menu_id => @menu.id),
                  class: "btn btn-danger btn-sm",
                  method: :delete %>
               </td>

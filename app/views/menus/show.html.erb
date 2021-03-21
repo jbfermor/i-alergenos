@@ -8,25 +8,50 @@
         <%= link_to "Editar #{@menu.nombre}", edit_menu_path(@menu), class: "btn btn-warning text-white" %>
   </div>
 
-  <%= render "menus/table_platos_menu" %>
+  <% if current_cliente.admin? %>
+    <%= render "menus/table_platos_menu_admin" %>
+  <% else %>
+    <%= render "menus/table_platos_menu_usuario" %>
+  <% end %>
 
+  <% if current_cliente.admin? %>
   <div class="row">
       <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
-       data-bs-target="#add_platos" aria-expanded="false"
-        aria-controls="add_platos">
+       data-bs-target="#add_platos_admin" aria-expanded="false"
+        aria-controls="add_platos_admin">
         Añadir platos
       </button>
   </div>
 
   <div class="row">
-    <div class="collapse" id="add_platos">
+    <div class="collapse" id="add_platos_admin">
       <div class="card">
         <div class="card-body">
-          <%= render "menus/add_platos" %>
+          <%= render "menus/add_platos_admin" %>
         </div>
       </div>
     </div>
   </div>
+  <% else %>
+  <div class="row">
+      <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+       data-bs-target="#add_platos_usuario" aria-expanded="false"
+        aria-controls="add_platos_usuario">
+        Añadir platos
+      </button>
+  </div>
+
+  <div class="row">
+    <div class="collapse" id="add_platos_usuario">
+      <div class="card">
+        <div class="card-body">
+          <%= render "menus/add_platos_usuario" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
 
   <div class="row">
     <%= link_to 'Atrás', menus_path, class: "btn btn-danger text-white" %>
