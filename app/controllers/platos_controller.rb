@@ -15,6 +15,7 @@ class PlatosController < ApplicationController
 
   # GET /platos/1 or /platos/1.json
   def show
+    @pagy_ingredientes, @ingredientes = pagy(Ingrediente.all)
   end
 
   # GET /platos/new

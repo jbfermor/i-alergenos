@@ -1,5 +1,7 @@
 <div class="row">
-  <table>
+  <input id="buscar" type="text" class="form-control"
+   placeholder="Buscar..." />
+  <table id="clientesIndex" class="mt-2">
     <thead>
       <tr>
         <th>Cif / Nif</th>
@@ -28,5 +30,6 @@
   </table>
 </div>
 <div class="d-flex justify-content-center">
-    <%== pagy_bootstrap_nav(@pagy) %>
+    <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %>
 </div>
+<%= javascript_pack_tag "buscarClientesIndex" %>
