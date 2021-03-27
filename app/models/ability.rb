@@ -5,6 +5,7 @@ class Ability
 
   def initialize(cliente)
     alias_action :suscripcion, :suscribir, :eliminar_suscripcion, :to => :suscribe
+    alias_action :to_pdf_images, :to_pdf_text, :to_pdf_leyenda, :to => :to_pdf
 
     if cliente.admin?
       can :manage, :all
@@ -14,6 +15,7 @@ class Ability
       can [:read, :create, :update], [Grupoingrediente, Menu, Plato, Ingrediente,
         PlatoIngrediente, IngredienteAlergeno, MenuPlato]
       can :suscribe, Cliente
+      can :to_pdf, Menu
     end
 
     # Define abilities for the passed in user here. For example:

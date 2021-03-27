@@ -2,7 +2,12 @@ Rails.application.routes.draw do
 
   root to: "home#index"
 
-  resources :menus
+  resources :menus do
+    get "/to_pdf_images/", to: "menus#to_pdf_images"
+    get "/to_pdf_text/", to: "menus#to_pdf_text"
+    get "/to_pdf_leyenda/", to: "menus#to_pdf_leyenda"
+  end
+  #get "to_pdf/", to: "menus#to_pdf"
   resources :platos
   resources :menu_platos
   resources :grupoingredientes

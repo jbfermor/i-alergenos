@@ -14,6 +14,30 @@
     <%= render "menus/table_platos_menu_usuario" %>
   <% end %>
 
+  <div class="row">
+    <button class="btn btn-success" type="button" data-bs-toggle="collapse"
+     data-bs-target="#informe_menu" aria-expanded="false"
+      aria-controls="informe_menu">
+      Imprimir informe de alérgenos
+    </button>
+  </div>
+  <div class="collapse" id="informe_menu">
+    <div class="row text-center border border-success p-3">
+      <div class="col-4">
+        <%= link_to "Con imágenes", menu_to_pdf_images_path(menu_id: @menu,
+         format: "pdf"), class: "btn btn-secondary text-white" %>
+      </div>
+      <div class="col-4">
+        <%= link_to "Con texto", menu_to_pdf_text_path(menu_id: @menu,
+         format: "pdf"), class: "btn btn-secondary text-white" %>
+      </div>
+      <div class="col-4">
+        <%= link_to "Con leyenda", menu_to_pdf_leyenda_path(menu_id: @menu,
+         format: "pdf"), class: "btn btn-secondary text-white" %>
+      </div>
+    </div>
+  </div>
+
   <% if current_cliente.admin? %>
   <div class="row">
       <button class="btn btn-primary" type="button" data-bs-toggle="collapse"

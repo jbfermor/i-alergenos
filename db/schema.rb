@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_15_1808807) do
+ActiveRecord::Schema.define(version: 2021_03_26_161011) do
 
   create_table "alergenos", force: :cascade do |t|
     t.string "nombre"
@@ -39,6 +39,11 @@ ActiveRecord::Schema.define(version: 2021_03_15_1808807) do
     t.index ["email"], name: "index_clientes_on_email", unique: true
     t.index ["reset_password_token"], name: "index_clientes_on_reset_password_token", unique: true
     t.index ["role_id"], name: "index_clientes_on_role_id"
+  end
+
+  create_table "export_pdfs", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "grupoingredientes", force: :cascade do |t|

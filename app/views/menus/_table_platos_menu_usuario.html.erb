@@ -3,19 +3,26 @@
       <thead>
         <tr>
           <th colspan="2">Platos</th>
+          <th>Alérgenos</th>
+          <th>Acciones</th>
         </tr>
       </thead>
       <tbody>
         <% if @menu.menu_platos.empty? %>
           <tr>
-            <td>No hay platos añadidos todavía</td>
+            <td colspan="4">No hay platos añadidos todavía</td>
             <td></td>
           </tr>
         <% else %>
           <% @menu.menu_platos.each do |menu_plato| %>
             <tr>
-              <td>
+              <td colspan="2">
                 <%= menu_plato.plato.nombre %>
+              </td>
+              <td>
+                <% menu_plato.plato.alergenos.each do |a| %>
+                  <img src="<%= asset_path "#{a.img}" %>" alt="" width="30px">
+                <% end %>
               </td>
               <td>
                 <%= link_to "Eliminar",
@@ -28,4 +35,5 @@
         <% end %>
       </tbody>
     </table>
+
 </div>
