@@ -67,46 +67,16 @@ class MenusController < ApplicationController
   end
 
   def to_pdf_images
-    @menu = Menu.find(params[:menu_id])
-    respond_to do |format|
-      format.html
-      format.pdf do
-        pdf = MenuPdf.new(@menu, 0)
-        send_data pdf.render,
-          filename: "#{@menu.nombre}.pdf",
-          type: "application/pdf",
-          disposition: "inline"
-      end
-    end
+    to_pdf(0)
   end
 
-    def to_pdf_text
-      @menu = Menu.find(params[:menu_id])
-      respond_to do |format|
-        format.html
-        format.pdf do
-          pdf = MenuPdf.new(@menu, 1)
-          send_data pdf.render,
-            filename: "#{@menu.nombre}.pdf",
-            type: "application/pdf",
-            disposition: "inline"
-        end
-      end
-    end
+  def to_pdf_text
+    to_pdf(1)
+  end
 
-    def to_pdf_leyenda
-      @menu = Menu.find(params[:menu_id])
-      respond_to do |format|
-        format.html
-        format.pdf do
-          pdf = MenuPdf.new(@menu, 2)
-          send_data pdf.render,
-            filename: "#{@menu.nombre}.pdf",
-            type: "application/pdf",
-            disposition: "inline"
-        end
-      end
-    end
+  def to_pdf_leyenda
+    to_pdf(2)
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -115,6 +85,20 @@ class MenusController < ApplicationController
     # Only allow a list of trusted parameters through.
     def menu_params
       params.require(:menu).permit(:nombre, :cliente_id)
+    end
+
+    def to_pdf (plantilla)
+      @menu = Menu.find(params[:menu_id])
+      respond_to do |format|
+        format.html
+        format.pdf do
+          pdf = MenuPdf.new(@menu, plantilla)
+          send_data pdf.render,
+            filename: "#{@menu.nombre}.pdf",
+            type: "application/pdf",
+            disposition: "inline"
+        end
+      end
     end
 
 end
