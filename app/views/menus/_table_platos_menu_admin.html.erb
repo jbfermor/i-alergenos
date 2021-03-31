@@ -20,7 +20,7 @@
                 <%= menu_plato.plato.nombre %>
               </td>
               <td>
-                <% menu_plato.plato.alergeno.each do |a| %>
+                <% menu_plato.plato.alergenos.each do |a| %>
                   <img src="<%= asset_path "#{a.img}" %>" alt="" width="30px">
                 <% end %>
               </td>
