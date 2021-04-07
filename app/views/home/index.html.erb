@@ -1,2 +1,10 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="row text-center">
+	<h1>¿Qué quieres hacer?</h1>
+	<p>Selecciona la acción que quieras</p>
+</div>
+
+<% if current_cliente.admin?%>
+	<%= render "home/index_admin" %>
+<% else %>
+	<%= render "home/index_usuario" %>
+<% end %>
