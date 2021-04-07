@@ -5,5 +5,5 @@
 <% elsif cliente_signed_in? %>
 	<%= render "home/index_usuario" %>
 <% else %>
-	<h1>Página de entrada</h1>
+	<%= render "home/index_not_logged" %>
 <% end %>
