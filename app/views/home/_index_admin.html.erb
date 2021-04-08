@@ -4,37 +4,76 @@
 </div>
 
 <div class="row">
-
-	<div class="col-3">
-		<div class="card" style="width: 18rem;">
-		  <img src="..." class="card-img-top" alt="...">
-		  <div class="card-body">
-		    <h5 class="card-title">Card title</h5>
-		    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-		    <a href="#" class="btn btn-primary">Go somewhere</a>
-		  </div>
-		</div>
-  </div>
-
-	<div class="col-3 mx-2">
-		<div class="card" style="width: 18rem;">
-		  <img src="..." class="card-img-top" alt="...">
-		  <div class="card-body">
-		    <h5 class="card-title">Card title</h5>
-		    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-		    <a href="#" class="btn btn-primary">Go somewhere</a>
-		  </div>
+	<div class="col-6">
+		<div class="card"">
+			<div class="card-body">
+				<h5 class="card-title">Menús</h5>
+				<p class="card-text">Crea tus propios grupos de platos para imprimirlos
+				con sus respectivos alérgenos</p>
+				<%= link_to "Ir a Menús", menus_path,
+				class: "btn btn-primary text-white" %>
+			</div>
 		</div>
 	</div>
+	<div class="col-6">
+		<div class="card"">
+			<div class="card-body">
+				<h5 class="card-title">Platos</h5>
+				<p class="card-text">Esgoge los alimentos de tus recetas y podrás ver
+				sus alérgenos de inmediato</p>
+				<%= link_to "Ir a Platos", platos_path,
+				class: "btn btn-primary text-white" %>
+			</div>
+		</div>
+	</div>
+</div>
 
-	<div class="col-3">
-		<div class="card" style="width: 18rem;">
-		  <img src="..." class="card-img-top" alt="...">
-		  <div class="card-body">
-		    <h5 class="card-title">Card title</h5>
-		    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-		    <a href="#" class="btn btn-primary">Go somewhere</a>
-		  </div>
+<div class="row">
+	<div class="col-6">
+		<div class= "card"">
+			<div class="card-body">
+				<h5 class="card-title">Ingredientes</h5>
+				<p class="card-text">¿Utilizas algún ingrediente que no esté en la lista
+					Añádelo y empieza a usarlo en tus platos.</p>
+				<%= link_to "Ir a Ingredientes", ingredientes_path,
+				 class: "btn btn-primary text-white" %>
+			</div>
+		</div>
+	</div>
+	<div class="col-6">
+		<div class= "card"">
+			<div class="card-body">
+				<h5 class="card-title">Grupos de Ingredientes</h5>
+				<p class="card-text">Crea grupos de ingredientes para añadirlos luego
+				rápidamente a todos tus diferentes listados.</p>
+				<%= link_to "Ir a Grupos de Ingredientes", grupoingredientes_path,
+				 class: "btn btn-primary text-white" %>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-6">
+		<div class= "card"">
+			<div class="card-body">
+				<h5 class="card-title">Alérgenos</h5>
+				<p class="card-text">Añade y edita los distintos alérgenos que podrána
+				ser utilizados en los distintos ingredientes</p>
+				<%= link_to "Ir a Alérgenos", alergenos_path,
+				 class: "btn btn-primary text-white" %>
+			</div>
+		</div>
+	</div>
+	<div class="col-6">
+		<div class= "card"">
+			<div class="card-body">
+				<h5 class="card-title">Clientes</h5>
+				<p class="card-text">Edita, crea y administra los clientes, así como
+				cada uno de sus menús, platos e ingredientes.</p>
+				<%= link_to "Ir a Clientes", clientes_path,
+				 class: "btn btn-primary text-white" %>
+			</div>
 		</div>
 	</div>
 </div>

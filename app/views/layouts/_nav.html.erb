@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <% if cliente_signed_in? %>
-          <% if @current_cliente&.admin? %>
+          <% if current_cliente.admin? %>
             <li class="nav-item">
               <%= link_to "Alérgenos", alergenos_path, class:"nav-link" %>
             </li>

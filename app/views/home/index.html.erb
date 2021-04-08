@@ -1,9 +1,6 @@
 
-
-<% if @current_cliente&.admin?%>
+<% if current_cliente.admin?%>
 	<%= render "home/index_admin" %>
 <% elsif cliente_signed_in? %>
 	<%= render "home/index_usuario" %>
-<% else %>
-	<%= render "home/index_not_logged" %>
 <% end %>
